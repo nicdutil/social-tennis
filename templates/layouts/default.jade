@@ -1,0 +1,197 @@
+include ../mixins/flash-messages
+
+mixin if-ie(condition, showInNonIeBrowser)
+  - if(showInNonIeBrowser == null) showInNonIeBrowser = condition == "!IE";
+  != "<!--[if " + condition + "]>"
+  if showInNonIeBrowser
+    != "-->"
+  block
+  if showInNonIeBrowser
+    != "<!--"
+  != "<![endif]-->"
+
+doctype html
++if-ie("lt IE 10") Please update your browser or use Google Chrome for optimal viewing experience !
+
+
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+
+html.no-js(lang=lang, prefix="og: http://ogp.me/ns#")
+
+    //- HTML HEADER
+    head
+        -var root = "http://www.infocinc.com"
+
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+        meta(name="author", content="infocinc")
+        title=t(section + ':title')
+        meta(name="description", content=t(section + ':description'))
+        //- this tag is to disable styling of links in iphones
+        meta(name="format-detection", content="telephone=no")
+        meta(property="fb:app_id", content="712675532159199")
+        meta(property="og:type", content="website")
+        meta(property="og:locale", content=lang)
+        meta(property="og:url", content=root + '/' + lang + '/' + section)
+
+        link(rel="alternate", href=root + '/fr/' + section, hreflang="fr-CA")
+        link(rel="alternate", href=root + '/en/' + section,  hreflang="en-US")
+        link(rel="canonical", href=root + '/' + lang + '/' + section)
+
+        link(rel="publisher", href="https://plus.google.com/+Infocinc1")
+        link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+
+        //- modernizr 
+        script(src="/js/vendor/modernizr-2.6.2.min.js")
+
+        //- Customise the stylesheet for your site by editing /public/styles/site.less
+        //- All .less files will be automatically compiled and minified in production.
+        link(href="/styles/site.min.css", rel="stylesheet")
+
+        //- Include template-specific stylesheets by extending the css block
+        block css
+
+        //- Add any other template-specific HEAD tags by extending the head block
+        script.
+            (function() {
+                var _fbq = window._fbq || (window._fbq = []);
+                if (!_fbq.loaded) {
+                    var fbds = document.createElement('script');
+                    fbds.async = true;
+                    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(fbds, s);
+                    _fbq.loaded = true;
+                }
+                _fbq.push(['addPixelId','868526663199184']);
+            })();
+            window._fbq = window._fbq || [];
+            window._fbq.push(['track', 'PixelInitialized', {}]);
+
+        block head
+    //- HTML BODY
+    body
+        noscript
+            img(height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=868526663199184&amp;ev=PixelInitialized")
+            block noscript
+        #fb-root
+        script.
+            (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=712675532159199&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-52538854-1', 'auto');
+            ga('require', 'linkid', 'linkid.js');
+            ga('require', 'displayfeatures');
+            ga('send', 'pageview');
+            window.___gcfg = {
+                lang: 'fr-CA',
+                parsetags: 'onload'
+            };
+            (function() {
+                var po = document.createElement("script");
+                po.type = "text/javascript";
+                po.async = true;
+                po.src = "https://apis.google.com/js/plusone.js";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(po, s);
+            })();
+        //- NAV
+        nav#menu.bar-items.invisible
+            button(type="button")#remove-btn
+                span.glyphicon.glyphicon-remove
+            ul.principal
+                li
+                    a.nav-item(href='/' + lang + '/home')=t('app.home')
+                li
+                    a.nav-item(href='/' + lang + '/services')=t('app.services')
+                li
+                    a.nav-item(href='/' + lang + '/projects')=t('app.portfolio')
+                li
+                    a.nav-item(href='/' + lang + '/contact')=t('app.contact')
+            ul.lang
+                li
+                    a(href='/'+t('app.switchlng') +'/' + section)=t('app.switchlng-label')
+            if user 
+                ul.cms
+                    if user.canAccessKeystone
+                        li
+                            a.nav-item(href='/keystone')=t('app.admin')
+                        li
+                            a(href='/keystone/signout')=t('app.signout')
+            ul.menu-buttons
+                li
+                    .fb-like(data-href="http://www.facebook.com/infocinc" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false")
+                li
+                    a(href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.infocinc.com")=t('app.tweet')
+            ul.menu-footer
+                li#social-icons.clearfix
+                    a(target="_blank" href="//twitter.com/InfoCinc") 
+                        img(src="/images/twitterlogo.png" alt="twitter logo")   
+                    a(target="_blank" href="//facebook.com/Infocinc")
+                        img(src="/images/facebooklogo.png" alt="facebook logo")
+                    a(target="_blank" href="//plus.google.com/+Infocinc1")  
+                        img(src="/images/googlepluslogo.png" alt="googleplus logo") 
+                    a(target="_blank" href="//www.linkedin.com/company/infocinc")  
+                        img(src="/images/linkedin.png" alt="linkedin logo") 
+                li.nav-item
+                    a(href='/' + lang + '/terms')=t('app.terms')
+                li.nav-item
+                    span
+                        | &copy;2014
+                    img#menu-logo(src="/images/infocinc-logo-white.png" alt="Infocinc Logo")
+
+        //- MAIN CONTENT WRAPPER
+        #main.push
+            .overlay.overlay-menu-open
+            .menu-link.menu-toggle
+                span.menu= t('app.menu')
+            
+                #hamburger
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+
+            //- The Intro block appears above flash messages (used for temporary information display)
+            block intro
+
+
+            //- The content block should contain the body of your template's content
+            block content
+
+
+        //- MEDIA QUERY STATE 
+        #media-state.hide.screenwidth
+        //- script(src="https://code.jquery.com/jquery-2.1.0.min.js")
+        //- script.
+        //-     var tag = '<script src="/js/vendor/jquery-2.1.0.min.js"<\/script>'
+        //-     window.jQuery || document.write(tag)
+            //- var section = !{JSON.stringify(section)}
+
+        //- Add scripts that are globally required by your site here.
+        script(src="/js/dist/" + section + '.min.js' )
+
+
+        //- Include template-specific javascript files by extending the js block
+        block js

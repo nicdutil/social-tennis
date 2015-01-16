@@ -1,0 +1,8 @@
+mixin header(section)
+	header
+		.overlay.overlay-tvnoise
+		.overlay.overlay-black
+		.hero-text-wrapper
+			h1.front!=t(section + ':catchphrase')
+		if block
+			block

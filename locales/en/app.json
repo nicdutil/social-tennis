@@ -1,0 +1,21 @@
+{
+    "app": {
+        "sronly": "Toggle Navigation",
+        "switchlng": "fr",
+        "switchlng-label": "Français",
+        "signout": "Sign out",
+        "signin" : "Sign in",
+        "home" : "HOME",
+        "blog" : "BLOG",
+        "portfolio": "PORTFOLIO",
+        "services" : "SERVICES",
+        "contact" : "CONTACT",
+        "about" : "ABOUT",
+        "menu" : "Menu",
+        "admin": "ADMIN",
+        "signin" : "SIGN IN",
+        "signout" : "SIGN OUT",
+        "404-title": "Page non trouvée",
+        "404-msg": "Retourner à la page d'accueil"
+    }
+}

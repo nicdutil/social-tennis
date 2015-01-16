@@ -1,0 +1,19 @@
+{
+    "app": {
+        "sronly": "Bascule Navigation",
+        "switchlng": "en",
+        "switchlng-label": "English",
+        "signout": "Déconnexion",
+        "signin" : "Connexion",
+        "home" : "ACCUEIL",
+        "blog" : "BLOG",
+        "services" : "SERVICES",
+        "portfolio": "PORTFOLIO",
+        "contact" : "CONTACT",
+        "about" : "À PROPOS",
+        "menu" : "Menu",
+        "admin" : "ADMIN",
+        "signout" : "DÉCONNEXION",
+        "signin" : "CONNEXION"
+    }
+}

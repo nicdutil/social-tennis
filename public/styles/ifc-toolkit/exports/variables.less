@@ -1,0 +1,84 @@
+
+// Override Bootstrap variables in this file, e.g.
+
+/////////////////////////////////////////////////////////////////////////////
+// IFC-TOOLKIT SCREEN VARS
+//////////////////////////////////////////////////////////////////////////// 
+
+/////////////////////////////////////////////////////////////////////////////
+// SCREEN VARS (OVERRIDE BOOTSTRAP VARIABLES IF NEEDED)
+//////////////////////////////////////////////////////////////////////////// 
+
+@screen-iphone: 320px;
+@screen-iphone-min: @screen-iphone;
+
+@screen-xs: 480px;
+@screen-xs-min: @screen-xs;
+@screen-phone: @screen-xs-min;
+
+// Small screen / tablet // Note: Deprecated @screen-sm and @screen-tablet as of v3.0.1 
+@screen-sm: 768px;
+@screen-sm-min: @screen-sm;
+@screen-tablet: @screen-sm-min;
+
+// Medium screen / desktop // Note: Deprecated @screen-md and @screen-desktop as of v3.0.1 
+@screen-md: 992px;
+@screen-md-min: @screen-md;
+@screen-desktop: @screen-md-min;
+
+
+// Large screen  // Note: Deprecated @screen-lg and @screen-lg-desktop as of v3.0.1 
+@screen-lg: 1200px;
+@screen-lg-min: @screen-lg;
+@screen-lg-desktop: @screen-lg-min;
+
+// Wide screen 
+@screen-wide: 1600px;
+@screen-wide-min: @screen-wide;
+@screen-wide-desktop: @screen-wide-min;
+
+@screen-superhigh: 2200px;
+@screen-superhigh-min: @screen-superhigh;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-nano-max: (@screen-iphone-min - 1);
+@screen-iphone-max: (@screen-xs-min - 1);
+@screen-xs-max: (@screen-sm-min - 1);
+@screen-sm-max: (@screen-md-min - 1);
+@screen-md-max: (@screen-lg-min - 1);
+@screen-lg-max: (@screen-wide-min - 1);
+@screen-superhigh-max: (@screen-superhigh-min - 1);
+
+@screen-height-wide: 900px;
+
+//////////////////////////////////////////////////////
+// KEYSTONE PROJECT RELATED VARIABLES
+//////////////////////////////////////////////////////
+
+@kjs-img: "../../images";
+
+//////////////////////////////////////////////////////
+// SCREEN WIDTH HACK
+//////////////////////////////////////////////////////
+.screenwidth {
+  font-size: 1px;
+  @media screen and (min-width:@screen-iphone-min) {
+    font-size: 2px;
+  }
+  @media screen and (min-width:@screen-xs-min) {
+    font-size: 3px;
+  }
+  @media screen and (min-width:@screen-sm-min) {
+    font-size: 4px;
+  }
+ @media screen and (min-width:@screen-md-min) {
+   font-size: 5px;
+  }
+  @media screen and (min-width:@screen-lg-min) {
+    font-size: 6px;
+  }
+  @media screen and (min-width:@screen-wide-min) {
+    font-size: 7px;
+  }
+}
+

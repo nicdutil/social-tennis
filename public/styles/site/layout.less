@@ -1,0 +1,130 @@
+
+@import (reference) "../ifc-toolkit/presets/electro.less";
+@import "fonts.less";
+
+//////////////////////////////////////////////
+// COLORS
+//////////////////////////////////////////////
+
+body {
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+/*.nav-grey-bg {
+	&:hover,&:focus,&:active {
+		background: @darkGray;
+	}
+}
+*/
+#main > button {
+	background: none;
+}
+
+#main {
+	position: relative;
+	right: 0;
+}
+
+#menu {
+	.side-menu-mobile(@bg:'@{kjs-img}/infocinc-desktop.png',@width:250px,@font:'Open Sans Condensed',@font-size:18px);
+}
+
+.logo {
+	position: absolute;
+	top: 10px;
+	img {
+		height: 30px;
+	}
+}
+
+
+.service-link {
+	display: inline-block;
+	margin-bottom: 15px;
+	color: black;
+	.transition(@property:background;@delay:300ms);
+	&:first-child {
+		margin-top: 35px;
+	}
+	.icon-text {
+		letter-spacing: 0.2em;
+		font-size: 1.4em;
+	}
+	.icon-logo {
+		width: 80%;
+		max-width: 120px;
+		margin: 0 auto;
+		img {
+			width: 100%;
+		}
+	}
+	&:active {
+		background: @dark-brown !important;
+	}
+}
+
+////////////////////////////////////////////////////////////////
+// MEDIA QUERIES
+////////////////////////////////////////////////////////////////
+
+@media screen and (max-width:@screen-nano-max) {
+	.service-link  .icon-logo img {
+		width: 80%;
+	}
+}
+@media screen and (min-width:@screen-iphone-min) {
+	.logo {
+		left: 10px;
+	}
+}
+
+@media screen and (min-width: @screen-xs-min) {
+	.service-link .icon-text {
+		margin-top: 10px;
+	}
+}
+
+@media screen and (min-width:@screen-sm-min) {
+	.logo {
+		top: 15px;
+		left: 30px;
+		img {
+			height: 40px;
+		}
+	}
+	#menu {
+		.side-menu-full();
+	}
+	.service-link .icon-logo {
+		width: 110px;
+	}
+}
+
+@media screen and (min-width:@screen-md-min) {
+	.logo {
+		top: 10px;
+	}
+	.service-link {
+		.icon-logo {
+			width: 100px;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+@media screen and (min-width:@screen-lg-min) {
+	.logo {
+		top: 20px;
+		left: 50px;
+		img {
+			height: 50px;
+		}
+	}
+	.service-link .icon-logo {
+		width: 120px;
+	}
+}
+
+@media screen and (min-width:@screen-wide-min) {
+
+}

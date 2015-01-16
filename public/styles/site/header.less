@@ -1,0 +1,105 @@
+@import (reference) "../ifc-toolkit/presets/electro.less";
+
+////////////////////////////////////////
+// HEADER
+////////////////////////////////////////
+
+// NON-LAYOUT
+// -----------------------
+
+.hero-text-wrapper {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  color: @white;
+  text-align: center;
+  h1 {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-size: 1.8em;
+  }
+}
+
+
+// LAYOUT
+// ------------------------
+
+.hero-text-wrapper {
+  h1 {
+    padding: 0 20px;
+    line-height: 2;
+  }
+}
+
+header {
+   position: relative;
+   display: table;
+   text-align: center;
+   width: 100%;
+   min-height: 480px;
+}
+
+///////////////////////////////////////////
+// INTRO
+///////////////////////////////////////////
+
+
+////////////////////////////////////////////
+// MEDIA QUERIES
+////////////////////////////////////////////
+
+@media screen and (max-width:(@screen-nano-max)) {
+	header { 
+		min-height: 480px;
+	}
+}
+@media screen and (min-width:@screen-iphone-min) {
+  header {
+    min-height: 400px;
+  }
+  .hero-text-wrapper h1 {
+    max-width: 320px;
+    margin: 0 auto !important;
+  }
+}
+@media screen and (min-width:@screen-xs-min) {
+	.hero-text-wrapper h1 {
+		max-width: 400px;
+	}
+}
+@media screen and (min-width:@screen-sm-min) {
+  header {
+  	height: 700px;
+  }
+  .hero-text-wrapper {
+    h1 {
+      max-width: 920px;
+      font-size: 3.8em;
+      line-height: 1.4;
+      padding: 0;
+    }
+  }
+}
+@media screen and (min-width:@screen-md-min) {
+}
+@media screen and (min-width:@screen-lg-min) {
+  .hero-text-wrapper h1 {
+    max-width: 1100px;
+  }
+}
+@media screen and (min-width:@screen-wide-min) {
+  .hero-text-wrapper {
+    h1 {
+      max-width: none;
+    }
+  }
+}
+
+@media screen and (min-width:@screen-superhigh-min) {
+	.hero-text-wrapper 
+	{
+		h1 {
+			font-size: 4em;
+		}
+	}
+}
